@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="صفحة تعرّف بسيطة - مشروع تدريبي للمبتدئين في Frontend" />
+  <title>عنّي — مشروع تدريبي</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <nav class="nav" role="navigation" aria-label="القائمة الرئيسية">
+      <a class="logo" href="#">MyPortfolio</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">القائمة</button>
+      <ul id="main-nav" class="nav-list">
+        <li><a href="#about">عنّي</a></li>
+        <li><a href="#projects">مشاريعي</a></li>
+        <li><a href="#contact">اتصل بي</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" role="main">
+    <section id="hero" class="hero">
+      <h1>أهلاً — أنا طارق (مثال)</h1>
+      <p>هذه صفحة بسيطة كجزء من منهج تعلم Frontend — مصممة لتكون متجاوبة وقابلة للوصول.</p>
+      <a class="cta" href="#projects">شاهِد مشاريعي</a>
+    </section>
+
+    <section id="about" class="card">
+      <h2>عنّي</h2>
+      <p>مطور ويب مبتدئ يتعلم HTML، CSS، وJavaScript. الهدف: إنشاء واجهات جميلة وتفاعلية ونشرها على الويب.</p>
+      <ul>
+        <li>مهارات: HTML5، CSS3، أساسيات JS</li>
+        <li>الأدوات: VS Code، Git</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>مشاريع</h2>
+      <article>
+        <h3>صفحة شخصية</h3>
+        <p>مشروع بسيط لبناء صفحة تعرّف وعدّة أقسام.</p>
+        <a href="#contact">قِدّم طلب تعاون</a>
+      </article>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>اتصل بي</h2>
+      <form id="contact-form" action="#" method="post" novalidate>
+        <label for="name">الاسم</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="email">الإيميل</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">الرسالة</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn">إرسال</button>
+      </form>
+      <p class="form-note">هذه نموذج تجريبي — لا يرسَل فعليًا بدون backend.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2025 — صفحة تجريبية</p>
+  </footer>
+
+  <script>
+    // تفعيل قائمة بسيطة للـ mobile (تحسين صغير للـ accessibility)
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+
+    // منع إرسال الفورم (لأننا لا نملك backend هنا)
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('شكراً! هذه مجرد نسخة تجريبية — لا يوجد إرسال فعلي.');
+    });
+  </script>
+</body>
+</html>
